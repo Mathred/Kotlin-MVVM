@@ -6,10 +6,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.lifecycle.Observer
 import com.example.kotlinmvvm.databinding.MainFragmentBinding
 import com.example.kotlinmvvm.model.AppState
+import com.example.kotlinmvvm.model.entities.Movie
 import com.google.android.material.snackbar.Snackbar
 
 class MainFragment : Fragment() {
@@ -42,8 +42,7 @@ class MainFragment : Fragment() {
     private fun renderData(appState: AppState) = with(binding){
         when (appState) {
             is AppState.Success -> {
-                val data = appState.data
-                Snackbar.make(main, "Success", Snackbar.LENGTH_SHORT).show()
+                setData(appState.data)
             }
             is AppState.Loading -> {
 
@@ -55,9 +54,10 @@ class MainFragment : Fragment() {
                     .show()
             }
         }
+    }
 
-
-        Toast.makeText(context,"data",Toast.LENGTH_SHORT).show()
+    private fun setData(movie: Movie) = with(binding) {
+        //TODO "Implement UI update"
     }
 
 }
