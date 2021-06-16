@@ -9,6 +9,8 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import com.example.kotlinmvvm.databinding.MainFragmentBinding
+import com.example.kotlinmvvm.model.AppState
+import com.google.android.material.snackbar.Snackbar
 
 class MainFragment : Fragment() {
 
@@ -31,11 +33,30 @@ class MainFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
-        val observer = Observer<Any> { renderData(it) }
-        viewModel.getData().observe(viewLifecycleOwner, observer)
+        val observer = Observer<AppState> { renderData(it) }
+        viewModel.getLiveData().observe(viewLifecycleOwner, observer)
+
+        viewModel.getData()
     }
 
-    private fun renderData(it: Any) {
+    private fun renderData(appState: AppState) = with(binding){
+        when (appState) {
+            is AppState.Success -> {
+                val data = appState.data
+                Snackbar.make(main, "Success", Snackbar.LENGTH_SHORT).show()
+            }
+            is AppState.Loading -> {
+
+            }
+            is AppState.Error -> {
+                Snackbar
+                    .make(main, "Error", Snackbar.LENGTH_SHORT)
+                    .setAction("Reload") {viewModel.getData()}
+                    .show()
+            }
+        }
+
+
         Toast.makeText(context,"data",Toast.LENGTH_SHORT).show()
     }
 
