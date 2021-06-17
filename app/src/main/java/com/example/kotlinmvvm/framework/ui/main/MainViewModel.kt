@@ -1,16 +1,14 @@
-package com.example.kotlinmvvm.ui.main
+package com.example.kotlinmvvm.framework.ui.main
 
 import android.util.Log
 import androidx.lifecycle.*
 import com.example.kotlinmvvm.model.AppState
 import com.example.kotlinmvvm.model.repository.Repository
-import com.example.kotlinmvvm.model.repository.RepositoryImpl
 import java.lang.Thread.sleep
 
-class MainViewModel() : ViewModel(), LifecycleObserver {
+class MainViewModel(private val repository: Repository) : ViewModel(), LifecycleObserver {
 
     private val liveDataToObserve: MutableLiveData<AppState> = MutableLiveData()
-    private val repository: Repository = RepositoryImpl()
 
     fun getLiveData() = liveDataToObserve
 
