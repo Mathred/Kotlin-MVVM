@@ -1,4 +1,4 @@
-package com.example.kotlinmvvm.framework.ui.main
+package com.example.kotlinmvvm.framework.ui.main.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,7 +8,8 @@ import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.kotlinmvvm.databinding.MainFragmentBinding
-import com.example.kotlinmvvm.framework.ui.mainfragmentrecyclerview.ParentRecyclerViewAdapter
+import com.example.kotlinmvvm.framework.viewmodels.MainViewModel
+import com.example.kotlinmvvm.framework.ui.main.recyclerviews.mainfragmentrecyclerview.ParentRecyclerViewAdapter
 import com.example.kotlinmvvm.model.AppState
 import com.example.kotlinmvvm.model.entities.Category
 import com.example.kotlinmvvm.model.entities.Movie
@@ -19,9 +20,6 @@ class MainFragment : Fragment() {
 
     private lateinit var binding: MainFragmentBinding
     private val viewModel: MainViewModel by viewModel()
-
-
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

@@ -13,8 +13,8 @@
     <dimen name="mainFragment_child_RV_CV_IV_height">120dp</dimen>
     <dimen name="mainFragment_child_RV_CV_textBlock_height">30dp</dimen>
     <dimen name="mainFragment_child_RV_CV_movieName_TV_textSize">12sp</dimen>
-    <dimen name="mainFragment_child_RV_CV_movieName_TV_marginStart">2dp</dimen>
-    <dimen name="mainFragment_child_RV_CV_yearReleased_TV_marginStart">2dp</dimen>
+    <dimen name="mainFragment_child_RV_CV_movieName_TV_marginStart">4dp</dimen>
+    <dimen name="mainFragment_child_RV_CV_yearReleased_TV_marginStart">4dp</dimen>
     <dimen name="mainFragment_child_RV_CV_yearReleased_TV_textSize">12sp</dimen>
     <dimen name="mainFragment_child_RV_CV_movieRating_TV_textSize">12sp</dimen>
     <dimen name="mainFragment_child_RV_CV_movieRating_TV_marginEnd">2dp</dimen>

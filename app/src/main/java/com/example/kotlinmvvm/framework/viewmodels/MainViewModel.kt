@@ -1,4 +1,4 @@
-package com.example.kotlinmvvm.framework.ui.main
+package com.example.kotlinmvvm.framework.viewmodels
 
 import android.util.Log
 import androidx.lifecycle.*

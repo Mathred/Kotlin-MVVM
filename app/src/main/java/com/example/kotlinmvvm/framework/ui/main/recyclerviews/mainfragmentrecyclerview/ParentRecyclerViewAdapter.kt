@@ -1,17 +1,17 @@
-package com.example.kotlinmvvm.framework.ui.mainfragmentrecyclerview
+package com.example.kotlinmvvm.framework.ui.main.recyclerviews.mainfragmentrecyclerview
 
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.kotlinmvvm.databinding.ParentRecyclerviewItemBinding
+import com.example.kotlinmvvm.databinding.MainFragmentParentRecyclerviewItemBinding
+import com.example.kotlinmvvm.framework.ui.main.recyclerviews.decorations.HorizontalListDividerItemDecorator
 import com.example.kotlinmvvm.model.entities.Category
-import com.example.kotlinmvvm.model.entities.Movie
 
 class ParentRecyclerViewAdapter(private val categoryList: List<Category>, val context: Context) :
     RecyclerView.Adapter<ParentRecyclerViewAdapter.MyViewHolder>() {
-    inner class MyViewHolder(binding: ParentRecyclerviewItemBinding) :
+    inner class MyViewHolder(private val binding: MainFragmentParentRecyclerviewItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
         val categoryNameTV = binding.mainFragmentChildCategoryTextview
         val childRV = binding.mainFragmentChildRecyclerview
@@ -19,7 +19,7 @@ class ParentRecyclerViewAdapter(private val categoryList: List<Category>, val co
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val inflater = LayoutInflater.from(parent.context)
-        val binding = ParentRecyclerviewItemBinding.inflate(inflater)
+        val binding = MainFragmentParentRecyclerviewItemBinding.inflate(inflater)
         return MyViewHolder(binding)
     }
 
@@ -28,6 +28,7 @@ class ParentRecyclerViewAdapter(private val categoryList: List<Category>, val co
 
         childRV.layoutManager = LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false)
         childRV.setHasFixedSize(true)
+        childRV.addItemDecoration(HorizontalListDividerItemDecorator(8))
         childRV.adapter = ChildRecyclerViewAdapter(categoryList[position].movieList)
     }
 
