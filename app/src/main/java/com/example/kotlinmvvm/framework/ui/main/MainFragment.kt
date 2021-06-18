@@ -6,8 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.kotlinmvvm.databinding.MainFragmentBinding
+import com.example.kotlinmvvm.framework.ui.mainfragmentrecyclerview.ParentRecyclerViewAdapter
 import com.example.kotlinmvvm.model.AppState
+import com.example.kotlinmvvm.model.entities.Category
 import com.example.kotlinmvvm.model.entities.Movie
 import com.google.android.material.snackbar.Snackbar
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -25,6 +28,10 @@ class MainFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = MainFragmentBinding.inflate(inflater, container, false)
+        binding.mainFragmentParentRecyclerView.layoutManager = LinearLayoutManager(binding.root.context,LinearLayoutManager.VERTICAL,false)
+        binding.mainFragmentParentRecyclerView.setHasFixedSize(true)
+        binding.mainFragmentParentRecyclerView.adapter = ParentRecyclerViewAdapter(listOf(Category()),binding.root.context)
+
         return binding.root
     }
 
@@ -49,7 +56,7 @@ class MainFragment : Fragment() {
             }
             is AppState.Error -> {
                 Snackbar
-                    .make(main, "Error", Snackbar.LENGTH_SHORT)
+                    .make(mainFragment, "Error", Snackbar.LENGTH_SHORT)
                     .setAction("Reload") {viewModel.getData()}
                     .show()
             }
@@ -57,7 +64,6 @@ class MainFragment : Fragment() {
     }
 
     private fun setData(movie: Movie) = with(binding) {
-        //TODO "Implement UI update"
     }
 
     companion object {

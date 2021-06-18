@@ -2,6 +2,11 @@ package com.example.kotlinmvvm.model.entities
 
 data class Movie(
     val name: String = "Die hard",
-    val rating: Double = 3.1,
-    val poster: Int
-)
+    val rating: Int = 77,
+    val poster: Int?,
+    val yearReleased: Int = 1988
+) {
+    companion object {
+        fun getDefaultMovie() = Movie("Die Hard", 77,null,1988)
+    }
+}
