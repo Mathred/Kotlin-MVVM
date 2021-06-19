@@ -1,13 +1,17 @@
 package com.example.kotlinmvvm.framework.ui.main.fragments
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.kotlinmvvm.R
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.kotlinmvvm.databinding.MovieCastFragmentBinding
+import com.example.kotlinmvvm.framework.ui.main.recyclerviews.MovieCastFragmentRecycleViewAdapter
+import com.example.kotlinmvvm.framework.viewmodels.MovieCastViewModel
+import com.example.kotlinmvvm.model.AppState
+import com.example.kotlinmvvm.model.entities.Actor
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MovieCastFragment : Fragment() {
@@ -20,18 +24,25 @@ class MovieCastFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = MovieCastFragmentBinding.inflate(inflater, container, false)
-        with(binding) {
-
-        }
-
-
-        return inflater.inflate(R.layout.movie_cast_fragment, container, false)
+        val movieCastRV = binding.castFragmentRV
+        movieCastRV.layoutManager =
+            LinearLayoutManager(binding.root.context, LinearLayoutManager.VERTICAL, false)
+        movieCastRV.setHasFixedSize(true)
+        movieCastRV.adapter = MovieCastFragmentRecycleViewAdapter(listOf(Actor()), binding.root.context)
+        return binding.root
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(MovieCastViewModel::class.java)
-        // TODO: Use the ViewModel
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        lifecycle.addObserver(viewModel)
+
+        val observer = Observer<AppState> {renderData(it)}
+        viewModel.getLiveData().observe(viewLifecycleOwner, observer)
+        viewModel.getData()
+    }
+
+    private fun renderData(appState: AppState?) {
+        TODO("Not yet implemented")
     }
 
     companion object {

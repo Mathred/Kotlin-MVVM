@@ -4,13 +4,13 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.kotlinmvvm.databinding.FilmDetailsCastRecyclerViewItemBinding
+import com.example.kotlinmvvm.databinding.MovieDetailsCastRecyclerViewItemBinding
 import com.example.kotlinmvvm.model.entities.Actor
 
 class CastRecyclerViewAdapter(private val actorsList: List<Actor>, val context: Context) :
     RecyclerView.Adapter<CastRecyclerViewAdapter.MyViewHolder>() {
 
-    inner class MyViewHolder(private val binding: FilmDetailsCastRecyclerViewItemBinding) :
+    inner class MyViewHolder(private val binding: MovieDetailsCastRecyclerViewItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
         val photoIV = binding.filmDetailsCastRVPhotoIV
         val nameTV = binding.filmDetailsCastRVNameTV
@@ -19,7 +19,7 @@ class CastRecyclerViewAdapter(private val actorsList: List<Actor>, val context: 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val inflater = LayoutInflater.from(parent.context)
-        val binding = FilmDetailsCastRecyclerViewItemBinding.inflate(inflater)
+        val binding = MovieDetailsCastRecyclerViewItemBinding.inflate(inflater)
         return MyViewHolder(binding)
     }
 
