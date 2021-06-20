@@ -1,12 +1,11 @@
 package com.example.kotlinmvvm.framework.viewmodels
 
-import android.util.Log
 import androidx.lifecycle.*
 import com.example.kotlinmvvm.model.AppState
 import com.example.kotlinmvvm.model.repository.Repository
 import java.lang.Thread.sleep
 
-class MainViewModel(private val repository: Repository) : ViewModel(), LifecycleObserver {
+class MainFragmentViewModel(private val repository: Repository) : ViewModel(), LifecycleObserver {
 
     private val liveDataToObserve: MutableLiveData<AppState> = MutableLiveData()
 
@@ -19,13 +18,8 @@ class MainViewModel(private val repository: Repository) : ViewModel(), Lifecycle
         Thread {
             sleep(1000)
             liveDataToObserve.postValue(
-                AppState.Success(repository.getDataFromLocalStorage())
+                AppState.Success(repository.getMovieListFromLocalStorage(null))
             )
         }.start()
-    }
-
-    @OnLifecycleEvent(Lifecycle.Event.ON_START)
-    private fun onViewStart() {
-        Log.i("LifecycleEvent", "OnStart")
     }
 }

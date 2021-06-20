@@ -1,4 +1,4 @@
-package com.example.kotlinmvvm.framework.ui.main.recyclerviews.mainfragmentrecyclerview
+package com.example.kotlinmvvm.framework.ui.recyclerviews.mainfragmentrecyclerview
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.kotlinmvvm.databinding.MainFragmentParentRecyclerviewItemBinding
-import com.example.kotlinmvvm.framework.ui.main.recyclerviews.decorations.HorizontalListDividerItemDecorator
+import com.example.kotlinmvvm.framework.ui.recyclerviews.decorations.HorizontalListDividerItemDecorator
 import com.example.kotlinmvvm.model.entities.Category
 
 class ParentRecyclerViewAdapter(private val categoryList: List<Category>, val context: Context) :

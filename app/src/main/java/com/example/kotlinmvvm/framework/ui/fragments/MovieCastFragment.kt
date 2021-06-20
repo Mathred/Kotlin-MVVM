@@ -1,4 +1,4 @@
-package com.example.kotlinmvvm.framework.ui.main.fragments
+package com.example.kotlinmvvm.framework.ui.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.kotlinmvvm.databinding.MovieCastFragmentBinding
-import com.example.kotlinmvvm.framework.ui.main.recyclerviews.MovieCastFragmentRecycleViewAdapter
+import com.example.kotlinmvvm.framework.ui.recyclerviews.MovieCastFragmentRecycleViewAdapter
 import com.example.kotlinmvvm.framework.viewmodels.MovieCastViewModel
 import com.example.kotlinmvvm.model.AppState
 import com.example.kotlinmvvm.model.entities.Actor

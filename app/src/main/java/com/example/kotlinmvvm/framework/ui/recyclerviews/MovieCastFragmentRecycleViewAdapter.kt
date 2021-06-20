@@ -1,4 +1,4 @@
-package com.example.kotlinmvvm.framework.ui.main.recyclerviews
+package com.example.kotlinmvvm.framework.ui.recyclerviews
 
 import android.content.Context
 import android.view.LayoutInflater

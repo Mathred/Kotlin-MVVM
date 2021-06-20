@@ -10,9 +10,17 @@ class MovieDetailsViewModel(private val repository: Repository) : ViewModel(), L
 
     private val liveDataToObserve: MutableLiveData<AppState> = MutableLiveData()
 
-    fun getData(): Any {
-        TODO("Not yet implemented")
-    }
-
     fun getLiveData() = liveDataToObserve
+
+    fun getData() = getDataFromLocalSource()
+
+    private fun getDataFromLocalSource() {
+        liveDataToObserve.value = AppState.Loading
+        Thread {
+            Thread.sleep(1000)
+            liveDataToObserve.postValue(
+                AppState.Success(repository.getMovieFromLocalStorage(null))
+            )
+        }.start()
+    }
 }

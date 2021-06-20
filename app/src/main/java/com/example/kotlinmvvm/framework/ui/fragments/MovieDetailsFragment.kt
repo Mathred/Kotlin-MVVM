@@ -1,4 +1,4 @@
-package com.example.kotlinmvvm.framework.ui.main.fragments
+package com.example.kotlinmvvm.framework.ui.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.kotlinmvvm.databinding.MovieDetailsFragmentBinding
-import com.example.kotlinmvvm.framework.ui.main.recyclerviews.moviedetailsfragmentrecyclerview.CastRecyclerViewAdapter
+import com.example.kotlinmvvm.framework.ui.recyclerviews.moviedetailsfragmentrecyclerview.CastRecyclerViewAdapter
 import com.example.kotlinmvvm.framework.viewmodels.MovieDetailsViewModel
 import com.example.kotlinmvvm.model.AppState
 import com.example.kotlinmvvm.model.entities.Actor

@@ -12,8 +12,16 @@ class MovieCastViewModel(private val repository: Repository) : ViewModel(), Life
 
     fun getLiveData() = liveDataToObserve
 
-    fun getData() {
-        TODO("Not yet implemented")
+    fun getData() = getDataFromLocalSource()
+
+    private fun getDataFromLocalSource() {
+        liveDataToObserve.value = AppState.Loading
+        Thread {
+            Thread.sleep(1000)
+            liveDataToObserve.postValue(
+                AppState.Success(repository.getActorListFromLocalStorage(null))
+            )
+        }.start()
     }
 
 }

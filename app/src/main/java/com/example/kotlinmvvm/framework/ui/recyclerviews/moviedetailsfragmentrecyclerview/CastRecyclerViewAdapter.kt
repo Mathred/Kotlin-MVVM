@@ -1,4 +1,4 @@
-package com.example.kotlinmvvm.framework.ui.main.recyclerviews.moviedetailsfragmentrecyclerview
+package com.example.kotlinmvvm.framework.ui.recyclerviews.moviedetailsfragmentrecyclerview
 
 import android.content.Context
 import android.view.LayoutInflater

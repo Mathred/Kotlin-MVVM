@@ -1,4 +1,4 @@
-package com.example.kotlinmvvm.framework.ui.main.recyclerviews.decorations
+package com.example.kotlinmvvm.framework.ui.recyclerviews.decorations
 
 import android.graphics.Rect
 import android.graphics.drawable.GradientDrawable
