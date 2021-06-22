@@ -25,7 +25,7 @@ class CastRecyclerViewAdapter(private val actorsList: List<Actor>, val context: 
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) = with(holder){
 //        photoIV.setImageDrawable(actorsList[position].photo)
-        nameTV.text = actorsList[position].firstName + " " + actorsList[position].lastName
+        nameTV.text = actorsList.getOrNull(position)?.firstName + " " + actorsList.getOrNull(position)?.lastName
 //        roleTV.text = actorsList[position].role
     }
 

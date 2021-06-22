@@ -7,12 +7,24 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.kotlinmvvm.databinding.MainFragmentParentRecyclerviewItemBinding
 import com.example.kotlinmvvm.framework.ui.recyclerviews.decorations.HorizontalListDividerItemDecorator
-import com.example.kotlinmvvm.model.entities.Category
+import com.example.kotlinmvvm.model.entities.MovieCategory
 
-class ParentRecyclerViewAdapter(private val categoryList: List<Category>, val context: Context) :
+class ParentRecyclerViewAdapter(
+    private var categoryList: List<MovieCategory>,
+    val context: Context
+) :
     RecyclerView.Adapter<ParentRecyclerViewAdapter.MyViewHolder>() {
+
+
+    fun setItems(categoryList: List<MovieCategory>) {
+        this.categoryList = categoryList
+        notifyDataSetChanged()
+    }
+
+
     inner class MyViewHolder(private val binding: MainFragmentParentRecyclerviewItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
+        lateinit var adapter: ChildRecyclerViewAdapter
         val categoryNameTV = binding.mainFragmentChildCategoryTextview
         val childRV = binding.mainFragmentChildRecyclerview
     }
@@ -24,15 +36,16 @@ class ParentRecyclerViewAdapter(private val categoryList: List<Category>, val co
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) = with(holder) {
-        categoryNameTV.text = categoryList[position].category
 
-        childRV.layoutManager = LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false)
+        childRV.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         childRV.setHasFixedSize(true)
         childRV.addItemDecoration(HorizontalListDividerItemDecorator(8))
-        childRV.adapter = ChildRecyclerViewAdapter(categoryList[position].movieList)
+        adapter = ChildRecyclerViewAdapter(categoryList.getOrNull(position)?.movieList)
+        categoryNameTV.text = categoryList.getOrNull(position)?.category
     }
 
     override fun getItemCount(): Int {
         return categoryList.size
     }
+
 }

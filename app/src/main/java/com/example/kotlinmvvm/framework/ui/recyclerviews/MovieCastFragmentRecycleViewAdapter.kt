@@ -28,7 +28,7 @@ class MovieCastFragmentRecycleViewAdapter(
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) = with(holder) {
 //     photoIV.setImageDrawable(actorList[position].photo)
-        nameTV.text = actorList[position].firstName + " " + actorList[position].lastName
+        nameTV.text = actorList.getOrNull(position)?.firstName + " " + actorList.getOrNull(position)?.lastName
 //     roleTV.text = actorList[position].role
     }
 

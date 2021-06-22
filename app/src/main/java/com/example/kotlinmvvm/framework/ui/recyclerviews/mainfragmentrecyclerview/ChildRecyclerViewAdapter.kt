@@ -1,18 +1,25 @@
 package com.example.kotlinmvvm.framework.ui.recyclerviews.mainfragmentrecyclerview
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.kotlinmvvm.databinding.MainFragmentChildRecyclerviewReleasedMovieItemBinding
 import com.example.kotlinmvvm.model.entities.Movie
 
 
-class ChildRecyclerViewAdapter(private val movieList: List<Movie>) : RecyclerView.Adapter<ChildRecyclerViewAdapter.MyViewHolder>() {
+class ChildRecyclerViewAdapter(
+    private val movieList: List<Movie>?,
+    private val onClickListener: (View, Movie) -> Unit
+) :
+    RecyclerView.Adapter<ChildRecyclerViewAdapter.MyViewHolder>() {
 
-    inner class MyViewHolder(binding: MainFragmentChildRecyclerviewReleasedMovieItemBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class MyViewHolder(binding: MainFragmentChildRecyclerviewReleasedMovieItemBinding) :
+        RecyclerView.ViewHolder(binding.root) {
         val movieNameTV = binding.mainFragmentChildRVCVMovieNameTV
         val movieYearReleasedTV = binding.mainFragmentChildRVCVYearReleasedTV
         val movieRatingTV = binding.mainFragmentChildRVCVMovieRatingTV
+
     }
 
     override fun onCreateViewHolder(
@@ -25,13 +32,22 @@ class ChildRecyclerViewAdapter(private val movieList: List<Movie>) : RecyclerVie
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        holder.movieNameTV.text = movieList[position].name
-        holder.movieYearReleasedTV.text = movieList[position].yearReleased.toString()
-        holder.movieRatingTV.text = movieList[position].rating.toString()
+        if (movieList != null) {
+            val movie = movieList.getOrNull(position)
+            if (movie != null) {
+                holder.movieNameTV.text = movie.name
+                holder.movieYearReleasedTV.text = movie.yearReleased.toString()
+                holder.movieRatingTV.text = movie.rating.toString()
+                holder.itemView.setOnClickListener { view -> onClickListener.invoke(view, movie) }
+            }
+        }
+        return
     }
 
     override fun getItemCount(): Int {
-        return movieList.size
+        if (movieList != null) {
+            return movieList.size
+        }
+        return 0
     }
-
 }
