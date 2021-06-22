@@ -3,7 +3,7 @@ package com.example.kotlinmvvm
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.kotlinmvvm.databinding.MainActivityBinding
-import com.example.kotlinmvvm.framework.ui.main.MainFragment
+import com.example.kotlinmvvm.framework.ui.fragments.MainFragment
 
 class MainActivity : AppCompatActivity() {
 

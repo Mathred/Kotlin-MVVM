@@ -19,7 +19,7 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/mainFragment_child_recyclerview"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/mainFragment_child_RV_marginTop"
         app:layout_constraintBottom_toBottomOf="parent"

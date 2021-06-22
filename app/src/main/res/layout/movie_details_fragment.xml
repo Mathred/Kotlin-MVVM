@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <ImageView
+            android:id="@+id/movieDetails_moviePoster_IV"
+            android:layout_width="150dp"
+            android:layout_height="200dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:background="@color/purple_700"
+            tools:src="@drawable/ic_baseline_movie_24"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/movieDetails_movieName_TV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/movieDetails_moviePoster_IV"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Movie name" />
+
+        <TextView
+            android:id="@+id/movieDetails_movieYearReleased_TV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/movieDetails_moviePoster_IV"
+            app:layout_constraintTop_toBottomOf="@id/movieDetails_movieName_TV"
+            tools:text="YYYY" />
+
+        <TextView
+            android:id="@+id/movieDetails_movieGenre_TV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/movieDetails_moviePoster_IV"
+            app:layout_constraintTop_toBottomOf="@id/movieDetails_movieYearReleased_TV"
+            tools:text="Action, Comedy" />
+
+        <TextView
+            android:id="@+id/movieDetails_movieLength_TV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/movieDetails_moviePoster_IV"
+            app:layout_constraintTop_toBottomOf="@id/movieDetails_movieGenre_TV"
+            tools:text="1:47" />
+
+        <TextView
+            android:id="@+id/movieDetails_movieAnnotation_TV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/movieDetails_moviePoster_IV"
+            tools:text="@tools:sample/lorem/random" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/movieDetails_movieCast_RV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/movieDetails_movieAnnotation_TV" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
