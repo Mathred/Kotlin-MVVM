@@ -6,6 +6,5 @@ data class Movie(
     val rating: Int = 77,
     val poster: Int? = null,
     val yearReleased: Int = 1988,
-    val cast: List<Actor>? = null,
-    val action: (() -> Unit)? = null
+    val cast: List<Actor>? = null
 )
