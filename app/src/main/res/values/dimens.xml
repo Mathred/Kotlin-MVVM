@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="mainFragment_child_category_textSize">16sp</dimen>
+    <dimen name="mainFragment_child_category_marginStart">16dp</dimen>
+    <dimen name="mainFragment_child_category_marginTop">24dp</dimen>
+    <dimen name="mainFragment_child_RV_marginTop">8dp</dimen>
+    <dimen name="mainFragment_parent_RV_padding">4dp</dimen>
+    <dimen name="mainFragment_child_RV_movie_item_marginStart">16dp</dimen>
+    <dimen name="mainFragment_child_RV_CV_layout_width">100dp</dimen>
+    <dimen name="mainFragment_child_RV_CV_layout_height">160dp</dimen>
+    <dimen name="mainFragment_child_RV_CV_cornerRadius">7dp</dimen>
+    <dimen name="mainFragment_child_RV_CV_elevation">5dp</dimen>
+    <dimen name="mainFragment_child_RV_CV_IV_height">120dp</dimen>
+    <dimen name="mainFragment_child_RV_CV_textBlock_height">30dp</dimen>
+    <dimen name="mainFragment_child_RV_CV_movieName_TV_textSize">12sp</dimen>
+    <dimen name="mainFragment_child_RV_CV_movieName_TV_marginStart">4dp</dimen>
+    <dimen name="mainFragment_child_RV_CV_yearReleased_TV_marginStart">4dp</dimen>
+    <dimen name="mainFragment_child_RV_CV_yearReleased_TV_textSize">12sp</dimen>
+    <dimen name="mainFragment_child_RV_CV_movieRating_TV_textSize">12sp</dimen>
+    <dimen name="mainFragment_child_RV_CV_movieRating_TV_marginEnd">2dp</dimen>
+    <dimen name="mainFragment_child_RV_CV_rateStar_width">16dp</dimen>
+    <dimen name="mainFragment_child_RV_CV_rateStar_height">16dp</dimen>
+</resources>
