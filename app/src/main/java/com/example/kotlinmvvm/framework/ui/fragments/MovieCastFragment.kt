@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.kotlinmvvm.databinding.MovieCastFragmentBinding
 import com.example.kotlinmvvm.framework.ui.recyclerviews.MovieCastFragmentRecycleViewAdapter
 import com.example.kotlinmvvm.framework.viewmodels.MovieCastViewModel
-import com.example.kotlinmvvm.model.appstates.MainFragmentAppState
+import com.example.kotlinmvvm.model.appstates.MovieDetailsAppState
 import com.example.kotlinmvvm.model.entities.Actor
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -22,7 +22,7 @@ class MovieCastFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = MovieCastFragmentBinding.inflate(inflater, container, false)
         val movieCastRV = binding.castFragmentRV
         movieCastRV.layoutManager =
@@ -36,12 +36,12 @@ class MovieCastFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         lifecycle.addObserver(viewModel)
 
-        val observer = Observer<MainFragmentAppState> {renderData(it)}
+        val observer = Observer<MovieDetailsAppState> {renderData(it)}
         viewModel.getLiveData().observe(viewLifecycleOwner, observer)
         viewModel.getData()
     }
 
-    private fun renderData(mainFragmentAppState: MainFragmentAppState?) {
+    private fun renderData(mainFragmentAppState: MovieDetailsAppState) {
         TODO("Not yet implemented")
     }
 

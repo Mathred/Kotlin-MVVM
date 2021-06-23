@@ -5,12 +5,12 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.kotlinmvvm.databinding.MovieDetailsCastRecyclerViewItemBinding
-import com.example.kotlinmvvm.model.entities.Actor
+import com.example.kotlinmvvm.model.entities.ActorList
 
-class CastRecyclerViewAdapter(private val actorsList: List<Actor>, val context: Context) :
+class CastRecyclerViewAdapter(private var actorsList: ActorList?, val context: Context) :
     RecyclerView.Adapter<CastRecyclerViewAdapter.MyViewHolder>() {
 
-    inner class MyViewHolder(private val binding: MovieDetailsCastRecyclerViewItemBinding) :
+    inner class MyViewHolder(binding: MovieDetailsCastRecyclerViewItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
         val photoIV = binding.filmDetailsCastRVPhotoIV
         val nameTV = binding.filmDetailsCastRVNameTV
@@ -25,9 +25,14 @@ class CastRecyclerViewAdapter(private val actorsList: List<Actor>, val context: 
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) = with(holder){
 //        photoIV.setImageDrawable(actorsList[position].photo)
-        nameTV.text = actorsList.getOrNull(position)?.firstName + " " + actorsList.getOrNull(position)?.lastName
+        nameTV.text = actorsList?.cast?.getOrNull(position)?.firstName + " " + actorsList?.cast?.getOrNull(position)?.lastName
 //        roleTV.text = actorsList[position].role
     }
 
-    override fun getItemCount() = actorsList.size
+    override fun getItemCount() = actorsList?.cast?.size ?: 0
+
+    fun setItems(actorsList: ActorList?) {
+        this.actorsList = actorsList
+        notifyDataSetChanged()
+    }
 }
