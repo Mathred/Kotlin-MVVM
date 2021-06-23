@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.kotlinmvvm.databinding.MovieDetailsFragmentBinding
+import com.example.kotlinmvvm.framework.ui.recyclerviews.decorations.HorizontalListDividerItemDecorator
 import com.example.kotlinmvvm.framework.ui.recyclerviews.moviedetailsfragmentrecyclerview.CastRecyclerViewAdapter
 import com.example.kotlinmvvm.framework.viewmodels.MovieDetailsViewModel
 import com.example.kotlinmvvm.model.appstates.MainFragmentAppState
@@ -48,6 +49,7 @@ class MovieDetailsFragment : Fragment() {
             binding.movieDetailsMovieDurationTV.text = movie.duration.toString()
             binding.movieDetailsMovieAnnotationTV.text = movie.annotation
             adapter.setItems(movie.cast)
+            binding.movieDetailsMovieCastRV.addItemDecoration(HorizontalListDividerItemDecorator(8))
         }
     }
 
