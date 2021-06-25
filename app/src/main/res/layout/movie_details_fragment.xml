@@ -3,7 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:clickable="true"
+    android:focusable="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -21,7 +24,7 @@
             tools:ignore="ContentDescription" />
 
         <TextView
-            android:id="@+id/movieDetails_movieName_TV"
+            android:id="@+id/movieDetails_movieTitle_TV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toEndOf="@id/movieDetails_moviePoster_IV"
@@ -33,7 +36,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toEndOf="@id/movieDetails_moviePoster_IV"
-            app:layout_constraintTop_toBottomOf="@id/movieDetails_movieName_TV"
+            app:layout_constraintTop_toBottomOf="@id/movieDetails_movieTitle_TV"
             tools:text="YYYY" />
 
         <TextView
@@ -45,7 +48,7 @@
             tools:text="Action, Comedy" />
 
         <TextView
-            android:id="@+id/movieDetails_movieLength_TV"
+            android:id="@+id/movieDetails_movieDuration_TV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toEndOf="@id/movieDetails_moviePoster_IV"
