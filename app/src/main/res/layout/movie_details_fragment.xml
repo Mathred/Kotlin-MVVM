@@ -67,7 +67,9 @@
             android:id="@+id/movieDetails_movieCast_RV"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/movieDetails_movieAnnotation_TV" />
+            app:layout_constraintTop_toBottomOf="@id/movieDetails_movieAnnotation_TV"
+            tools:listitem="@layout/movie_cast_fragment_recyclerview_item"
+            />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
