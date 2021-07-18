@@ -22,7 +22,7 @@ class MainFragment : Fragment() {
 
     private lateinit var binding: MainFragmentBinding
     private lateinit var adapter: ParentRecyclerViewAdapter
-    private val fragmentViewModel: MainFragmentViewModel by viewModel()
+    private val mainFragmentViewModel: MainFragmentViewModel by viewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,7 +33,7 @@ class MainFragment : Fragment() {
             LinearLayoutManager(binding.root.context, LinearLayoutManager.VERTICAL, false)
         binding.mainFragmentParentRecyclerView.setHasFixedSize(true)
         adapter = ParentRecyclerViewAdapter(
-            MovieCategory.getDefaultMovieCategoriesList(),
+            null,
             binding.root.context,
             null)
         binding.mainFragmentParentRecyclerView.adapter = adapter
@@ -43,6 +43,12 @@ class MainFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+
+
+
+
+
         lifecycle.addObserver(fragmentViewModel)
         val observer = Observer<MainFragmentAppState> { renderData(it) }
         fragmentViewModel.getLiveData().observe(viewLifecycleOwner, observer)

@@ -38,7 +38,7 @@ class ParentRecyclerViewAdapter(
         childRV.addItemDecoration(HorizontalListDividerItemDecorator(8))
         adapter = ChildRecyclerViewAdapter(categoryList?.getOrNull(position)?.movieList, clickListener)
         childRV.adapter = adapter
-        categoryNameTV.text = categoryList?.getOrNull(position)?.category
+        categoryNameTV.text = categoryList?.getOrNull(position)?.categoryTitle
     }
 
     override fun getItemCount(): Int {

@@ -2,17 +2,16 @@ package com.example.kotlinmvvm.model.entities
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
-import kotlinx.android.parcel.RawValue
 import java.time.Duration
 
 @Parcelize
 data class Movie(
-    val id: Int = 0,
-    val title: String = "Die hard",
+    val id: Int? = 0,
+    val title: String? = "Die hard",
     val genre: String? = "Action",
     val duration: Duration? = null,
     val annotation: String? = "Cool action movie",
-    val rating: Int = 77,
+    val voteAverage: Double? = 7.7,
     val poster: Int? = null,
     val yearReleased: Int = 1988,
     val cast: ActorList? = null,

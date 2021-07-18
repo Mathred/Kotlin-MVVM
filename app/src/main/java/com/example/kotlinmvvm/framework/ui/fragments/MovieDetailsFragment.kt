@@ -32,13 +32,14 @@ class MovieDetailsFragment : Fragment() {
             castRV.layoutManager = LinearLayoutManager(root.context, LinearLayoutManager.HORIZONTAL, false)
             castRV.setHasFixedSize(true)
             adapter = CastRecyclerViewAdapter(null,root.context)
-            castRV.adapter = CastRecyclerViewAdapter(ActorList.getDefaultActorList(), root.context)
+            castRV.adapter = CastRecyclerViewAdapter(null, root.context)
         }
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
 
         arguments?.getParcelable<Movie>(BUNDLE_EXTRA)?.let {
             val movie = it
